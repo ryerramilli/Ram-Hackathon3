@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Gettyimages Goldbox",
+  "description": "Choicest images from gettyimages",
+  "version": "1.0",
+
+  "permissions": [
+    "https://www.facebook.com/",
+    "http://localhost:7777/"
+  ],
+  
+  "content_scripts" : [
+        { "matches" : ["https://www.facebook.com/"], "run_at" : "document_end", "js" : ["jquery-2.0.1.js", "content.js"] },
+        { "matches" : ["https://www.facebook.com/*/photos_stream"], "run_at" : "document_end", "js" : ["jquery-2.0.1.js", "content.js"] }
+  ],
+  
+  "background" : {
+    "scripts" : ["runtime.js"]
+  },
+  
+  "browser_action": {
+    "default_icon": "165911430.jpg",
+    "default_popup": "goldbox.html"
+  }
+}
