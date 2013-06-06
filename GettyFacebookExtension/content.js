@@ -8,7 +8,7 @@ function reply(commentArea) {
     var buttons = $('.gettyimages_viewimages', scope);
     if(buttons.length == 0) {
         var linkId = 'gettyimages_viewimages_link_' + new Date().getTime();
-        scope.append('<a class="gettyimages_viewimages" id="' + linkId + '">open getty offers...</a>');
+        scope.append('<a class="gettyimages_viewimages" id="' + linkId + '">Tell your story with Getty\'s engaging imagery...</a>');
         replyTextBoxes[linkId] = commentArea.target;
     }      
 }
@@ -16,7 +16,7 @@ function reply(commentArea) {
 $(document).ready(attachToPhotoStream);
 function attachToPhotoStream() {
     var html = '<div id="gettyimages_stream_panel">';
-    html += '<a id="gettyimages_stream_button">Add photos from your GettyImages subscription</a>'
+    html += '<a id="gettyimages_stream_button">Use imagery from your GettyImages subscription</a>'
     html += '</div>';
     
     $('#pagelet_photos_stream').prepend(html);
@@ -45,8 +45,6 @@ function handleUserSelection(selectionEvent) {
     var imageId = $(selectionEvent.target).attr('data-gettyimages-image-id');
     
     if( launcherId == "gettyimages_stream_button") {
-        
-        alert('your image # ' + imageId + ' is being uploaded to your stream');
         
         // Post message to server
         port.postMessage({'request' : 'download', 'imageId' : imageId, 'subscriber' : getSubscriberStatus()});
@@ -162,7 +160,7 @@ function constructPanel() {
     $('#contentArea').prepend('<div id="gettyimages_contentPanel"></div>');
     var contentPanel = $('#gettyimages_contentPanel');
     contentPanel.append('<div>');
-    contentPanel.append('<div id="gettyimages_view_images_panel"><a id="gettyimages_explore_menu_item">Explore Gettyimages on your own</a><span>or</span><a id="gettyimages_editors_picks_menu_item">GettyImages Editor\'s picks</a> </div>');
+    contentPanel.append('<div id="gettyimages_view_images_panel"><a id="gettyimages_explore_menu_item">Explore on your own</a><span>or</span><a id="gettyimages_editors_picks_menu_item">Gettyimages editor\'s picks</a> <div style="clear:both;"/></div>');
     contentPanel.append('<div id="gettyimages_editor_picks"></div>');
     contentPanel.append('<div id="gettyimages_explore_images"><input type="text" name="gettyimages_searchbox" size="30" id="gettyimages_search_box"></input><button id="gettyimages_explore_button">Explore Gettyimages on your own</button>  <div id="gettyimages_dynamic_srp"></div> </div></div>');
     
@@ -180,11 +178,12 @@ function insertStyle() {
            + '#gettyimages_explore_images {display: none;}'
            + '#gettyimages_explore_images {display: none;}'
            + '#gettyimages_contentPanel {display: none; z-index:100000;position: fixed;top: 40px; left: 100px; height: 1000px; width: 1600px;}'
-           + '#gettyimages_view_images_panel {-webkit-transform: rotate(-90deg) translateX(-1700px) translateY(-40px); -webkit-transform-origin: 0 0;}'
+           + '#gettyimages_view_images_panel {-webkit-transform: rotate(-90deg) translateX(-1700px) translateY(-75px); -webkit-transform-origin: 0 0;}'
            + '#gettyimages_view_images_panel span {display: block; float: right; font-size: 3em; color: red; margin-left: 10px; margin-right: 10px;}'
            + '.getty_images_editor_topics {height: 250px;}'
            + '.gettyimages_topic_titles {-webkit-transform: rotate(-90deg) translateX(-150px); width: 200px; -webkit-transform-origin: 0 0; font-variant: small-caps; font-size: 2em;}'
            + '.gettyimages_editor_picked_image {margin-left: 5px; width: 240px; border-radius: 5px; border-width: 2px; border-style: outset;}'
+           
         + "</style>";
         
     $("body").append(styling);

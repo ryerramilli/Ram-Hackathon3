@@ -8,7 +8,7 @@ var transport = require('./../Integration/Transport.js');
 var util = require('util');
 var log4js = require('log4js');
 
-var facebook_access_token = 'CAAFgSDOA6x4BAEzuv4bU4q8EZCZCIuTmeEHibokp4wMvkAvBh0aQmIAWLH4fg18ssp2L0NAZCCBDhHEELfebz4l4iGs5ie9tW8JBgGkdfF71XHhiGDRRXKjZCXTFMGzvYXuKsyNrUPiXd1xpEhNZBCeZCR0grrWBIZD';
+var facebook_access_token = 'CAAFgSDOA6x4BAE1M7UHqAmYKMuuWniHNROZAHFKPLpJhy53OHyWix5lN6rpDhw1ZCfilfzxdlCySP2wcpyBq2tcub8olsZCNLMTgDQ5AO064h2B78fAKIbzQXFluAypm9FdfZBi4coaWw47ttbRXCXij06LgvUcZD';
 
 var archives = {'name' : 'Archives', images : []};
 var travel = {'name' : 'Travel', images : []};
@@ -281,7 +281,6 @@ function requestHandler(inStream, outStream) {
        var resource = urlParts.pathname;
        console.log(resource);
        obj["filters"] = urlParts.query;
-       console.log("-----"); console.log(obj["filters"]);
        
        function onResult(result) {
                 outStream.writeHead(result.statusCode);
@@ -289,7 +288,6 @@ function requestHandler(inStream, outStream) {
                         outStream.end(); 
         }
        
-       console.log('$$$$$$'); console.log(routeHandlers[method]);
        if(routeHandlers[method] && routeHandlers[method][resource])
             routeHandlers[method][resource](onResult, obj);
        else
