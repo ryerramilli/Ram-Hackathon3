@@ -116,12 +116,12 @@ function receiveSearchResults(images) {
     var html = '<div id="gettyimages_dynamic_srp">';
     for(var idx=0; idx < images.length; idx++) {
         
-        if(idx % 4 == 0)
+        if(idx % 6 == 0)
             html += '<div>';
             
         html += '<img class="gettyimages_editor_picked_image" src="' + images[idx].thumb + '" clickThru="' + images[idx].clickThru  + '" data-gettyimages-image-id="' + images[idx].id + '"/>';
         
-        if(idx % 4 == 0)
+        if(idx % 6 == 5)
             html += '</div>';
     }
     html += '</div>';
@@ -175,14 +175,15 @@ function insertStyle() {
     var styling = '<style type="text/css">'
            + '#gettyimages_view_images_panel a {font-variant: small-caps; font-size: 3em;float:right; margin-left:10px; marign-right:10px; display: block; }'
            + '#gettyimages_conentPanel input {display: block;}'
-           + '#gettyimages_explore_images {display: none;}'
-           + '#gettyimages_explore_images {display: none;}'
+           + '#gettyimages_explore_images {display: none; margin-top: 60px;}'
            + '#gettyimages_contentPanel {display: none; z-index:100000;position: fixed;top: 40px; left: 100px; height: 1000px; width: 1600px;}'
            + '#gettyimages_view_images_panel {-webkit-transform: rotate(-90deg) translateX(-1700px) translateY(-75px); -webkit-transform-origin: 0 0;}'
            + '#gettyimages_view_images_panel span {display: block; float: right; font-size: 3em; color: red; margin-left: 10px; margin-right: 10px;}'
-           + '.getty_images_editor_topics {height: 250px;}'
            + '.gettyimages_topic_titles {-webkit-transform: rotate(-90deg) translateX(-150px); width: 200px; -webkit-transform-origin: 0 0; font-variant: small-caps; font-size: 2em;}'
            + '.gettyimages_editor_picked_image {margin-left: 5px; width: 240px; border-radius: 5px; border-width: 2px; border-style: outset;}'
+           + '#gettyimages_explore_button {display: block;}'
+           + '#gettyimages_stream_button {font-size: 1.4em; color: blueviolet;}'
+           + '.gettyimages_viewimages {font-size: 1.1em;}'
            
         + "</style>";
         

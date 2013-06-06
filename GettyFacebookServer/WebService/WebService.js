@@ -136,7 +136,7 @@ function search(callback, searchRequest) {
                         },
                         "ResultOptions": {
                                 "IncludeKeywords": false,
-                                "ItemCount": 12,
+                                "ItemCount": 24,
                                 "ItemStartNumber": 1
                         }
                 }
